@@ -42,10 +42,10 @@ class JSONHelper extends AsyncTask<String,String,String>{
 		JSONObject jsonObj = new JSONObject(urlContent);
 		JSONArray jsonArray = jsonObj.getJSONArray("ServiceJob");
 		SQLiteDatabase db = DatabaseAccess.readWriteDatabase("/data/data/com.assignment.ptmsassignment/databases/PrinterDB");
-		String createTableSQL = "CREATE TABLE ServiceJob( jobNo text PRIMARY KEY, "
+		String createTableSQL = "CREATE TABLE IF NOT EXISTS ServiceJob( jobNo text PRIMARY KEY, "
 				+ "requestDate Date NOT NULL, jobProblem text NOT NULL, visitDate Date,"
-				+ " jobStatus text NOT NULL, jobStartTime Date, jobEndTime Date, serialNo text NOT NULL, remark text)";
-		//DatabaseAccess.createTable(db, createTableSQL);
+				+ " jobStatus text NOT NULL, jobStartTime Date, jobEndTime Date, serialNo text NOT NULL, remark text);";
+		DatabaseAccess.createTable(db, createTableSQL);
 		for(int pointer=0; pointer<jsonArray.length();pointer++){
 		    /*
 		    Log.i("jobNo", jsonArray.getJSONObject(pointer).getString("jobNo"));
@@ -64,11 +64,13 @@ class JSONHelper extends AsyncTask<String,String,String>{
 			DateFormat date = new DateFormat();
 			values.put("requestDate", jsonArray.getJSONObject(pointer).getString("requestDate"));
 			values.put("jobProblem", jsonArray.getJSONObject(pointer).getString("jobProblem"));
+			values.put("visitDate", jsonArray.getJSONObject(pointer).getString("visitDate"));
+			values.put("jobStatus", jsonArray.getJSONObject(pointer).getString("jobStatus"));
 			values.put("jobStartTime", jsonArray.getJSONObject(pointer).getString("jobStartTime"));
 			values.put("jobEndTime", jsonArray.getJSONObject(pointer).getString("jobEndTime"));
 			values.put("serialNo", jsonArray.getJSONObject(pointer).getString("serialNo"));
 			values.put("remark", jsonArray.getJSONObject(pointer).getString("remark"));
-			DatabaseAccess.insert(db,"ServiceJob", values);
+			DatabaseAccess.insertOrIgnore(db,"ServiceJob", values);
 			
 		}
 		DatabaseAccess.connectionClose(db);

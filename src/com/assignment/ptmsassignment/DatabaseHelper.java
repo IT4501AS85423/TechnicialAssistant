@@ -114,8 +114,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         sql = "INSERT INTO Purchase(serialNo, purchaseDate, prodNo, comNo) VALUES ('46917347228', '17/1/2013', 'HP1022', '2001');";
         db.execSQL(sql);
+       
         
-    
         System.out.println("Database created");
     }
 

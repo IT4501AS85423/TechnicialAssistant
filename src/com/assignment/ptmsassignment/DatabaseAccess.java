@@ -21,9 +21,8 @@ class DatabaseAccess {
 	protected static void insert(SQLiteDatabase database, String sql) throws SQLiteException{
 		database.execSQL(sql);
 	}
-	protected static int insert(SQLiteDatabase database, String table, ContentValues values) throws SQLiteException{
-		
-		int rowPosition = (int) database.insert(table, null, values);
+	protected static int insertOrIgnore(SQLiteDatabase database, String table, ContentValues values) throws SQLiteException{
+		int rowPosition = (int) database.insertWithOnConflict(table, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 		return rowPosition;
 	}
 	protected static Cursor select(SQLiteDatabase database, String sql) throws SQLiteException{
