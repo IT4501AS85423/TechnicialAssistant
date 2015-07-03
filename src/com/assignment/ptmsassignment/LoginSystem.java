@@ -45,6 +45,7 @@ public class LoginSystem extends Activity{
             String sql = "select * from Technician where staffLogin =? and staffPswd = ?";
             cursor = db.rawQuery(sql, args);
             if(cursor.moveToFirst()==true){
+                //Intent intent = new Intent(LoginSystem.this, MainActivity.class);
                 Intent intent = new Intent(LoginSystem.this, MainActivity.class);
                 startActivity(intent);
                 finish();

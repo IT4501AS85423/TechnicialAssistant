@@ -81,11 +81,14 @@ class JSONHelper extends AsyncTask<String,String,String>{
 		try {
 			fetchJobsToDB(jobsUrlString, "1001");
 		} catch (ClientProtocolException e) {
-			Log.e("ClientProtocolException", e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
-			Log.e("IOException", e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (JSONException e) {
-			Log.e("JSONException", e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return null;
 	}
