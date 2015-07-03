@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PTMSAssignment</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="userId">User ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login System</string>
+    <string name="logout">Logout</string>
+    <string name="viewDB">View Database</string>
+</resources>
