@@ -27,7 +27,7 @@ public class LoginSystem extends Activity{
         findView();
         BtnLoginOnclick btnLoginOnclick = new BtnLoginOnclick();
         btnLogin.setOnClickListener(btnLoginOnclick);
-
+        // TEST
 	}
 
     class BtnLoginOnclick implements View.OnClickListener{
