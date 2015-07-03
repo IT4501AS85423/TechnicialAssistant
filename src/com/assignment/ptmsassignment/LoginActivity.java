@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginSystem extends Activity{
+public class LoginActivity extends Activity{
 	EditText etUserId, etPassword;
 	Button btnLogin;
 	String id, password;
@@ -46,7 +46,8 @@ public class LoginSystem extends Activity{
             cursor = db.rawQuery(sql, args);
             if(cursor.moveToFirst()==true){
                 //Intent intent = new Intent(LoginSystem.this, MainActivity.class);
-                Intent intent = new Intent(LoginSystem.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("userId", id);
                 startActivity(intent);
                 finish();
             }else{
@@ -56,7 +57,7 @@ public class LoginSystem extends Activity{
     }
 
     public void manageDatabase(){
-        dbHelper = new DatabaseHelper(LoginSystem.this, dbName);
+        dbHelper = new DatabaseHelper(LoginActivity.this, dbName);
         db = dbHelper.getWritableDatabase();
     }
 	

@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,9 +35,10 @@ public class MainActivity extends Activity {
     private ActionBarDrawerToggle drawerToggle;
 	private JSONHelper jHelper = null;
     private String[] navItems;
-    String fragTitle = "";
-    String preTitle = "";
-    int preIndex = 0;
+    private String fragTitle = "";
+    private String preTitle = "";
+    private int preIndex = 0;
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,8 @@ public class MainActivity extends Activity {
         initializeView();
         fetchJSON();
         initializeNav(savedInstanceState);
-        
+        userId = getIntent().getStringExtra("userId");
+        //Log.i("UserID",userId);
     }
 
     public void initializeView(){
@@ -128,6 +131,9 @@ public class MainActivity extends Activity {
         	case 0:
                 fragManager.beginTransaction().replace(R.id.content, new MainFragment()).commit();
                 break;
+        	case 1:
+        		fragManager.beginTransaction().replace(R.id.content, new ServiceJobsFragment()).commit();
+        		break;
         	case 2:
         		logoutDialog();
                 nav.setItemChecked(preIndex, true);
@@ -153,7 +159,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Intent intent = new Intent(MainActivity.this, LoginSystem.class);
+				Intent intent = new Intent(MainActivity.this, LoginActivity.class);
  				startActivity(intent);
  				finish();
 			}

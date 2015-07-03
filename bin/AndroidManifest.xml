@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.assignment.ptmsassignment.LoginSystem"
+            android:name="com.assignment.ptmsassignment.LoginActivity"
             android:label="Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
