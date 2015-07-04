@@ -1,7 +1,5 @@
 package com.assignment.ptmsassignment;
 
-
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
@@ -92,8 +90,8 @@ public class MainActivity extends Activity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
-        //boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        //menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+        boolean opened = drawerLayout.isDrawerOpen(nav);
+        menu.findItem(R.id.action_search).setVisible(!opened);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -104,10 +102,11 @@ public class MainActivity extends Activity {
         }
         // Handle action buttons
         switch(item.getItemId()) {
-      
-        default:
-            return super.onOptionsItemSelected(item);
+        	case R.id.action_search:
+        		break;
+        	default:
         }
+            return super.onOptionsItemSelected(item);
     }
 
     private void selectItem(int index) {
@@ -124,6 +123,7 @@ public class MainActivity extends Activity {
                 break;
         	case 1:
         		fragManager.beginTransaction().replace(R.id.content, new ServiceJobsFragment()).commit();
+        		
         		break;
         	case 2:
         		logoutDialog();

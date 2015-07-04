@@ -16,71 +16,23 @@
             android:layout_width="20dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/tvJobNo"
+            android:layout_toRightOf="@+id/jobNo"
             android:clickable="false"
             android:scaleType="fitCenter"
             android:src="@drawable/divider" />
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tvVisitDate"
-            android:layout_alignBottom="@+id/tvVisitDate"
-            android:layout_toLeftOf="@+id/tvVisitDate"
-            android:text="@string/visitDate"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/tvRequestDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvJobNo"
-            android:layout_centerHorizontal="true"
-            android:text="requestDate"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tvRequestDate"
-            android:layout_alignBottom="@+id/tvRequestDate"
-            android:layout_toLeftOf="@+id/tvRequestDate"
-            android:text="@string/requestDate"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/tvVisitDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvRequestDate"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:text="visitDate"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/tvJobProblem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/TextView01"
-            android:layout_alignParentTop="true"
-            android:maxWidth="120dp"
-            android:text="JobProblem"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvJobNo"
+            android:id="@+id/jobNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:text="501"
-            android:textColor="#005C5C"
+            android:textColor="#009292"
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tvJobStatus"
+            android:id="@+id/jobStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/TextView01"
@@ -93,12 +45,68 @@
             android:id="@+id/imageView1"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_above="@+id/tvVisitDate"
-            android:layout_alignBaseline="@+id/tvJobProblem"
+            android:layout_above="@+id/visitDate"
+            android:layout_alignBaseline="@+id/jobProblem"
             android:layout_alignParentRight="true"
             android:clickable="false"
             android:scaleType="fitCenter"
             android:src="@drawable/more_details" />
+
+        <TextView
+            android:id="@+id/jobProblem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/ImageView01"
+            android:maxWidth="200dp"
+            android:text="JobProblem"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/requestDate"
+            android:layout_alignBottom="@+id/requestDate"
+            android:layout_alignLeft="@+id/jobProblem"
+            android:text="@string/requested"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/requestDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jobNo"
+            android:layout_toRightOf="@+id/TextView01"
+            android:text="requestDate"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jobNo"
+            android:layout_toLeftOf="@+id/visitDate"
+            android:text="@string/visit"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/visitDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jobNo"
+            android:layout_toLeftOf="@+id/imageView1"
+            android:text="visitDate"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/serialNo_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_alignParentTop="true"
+            android:text="@string/serialNo"
+            android:textSize="10sp" />
 
     </RelativeLayout>
     

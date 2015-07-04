@@ -1,18 +1,27 @@
 package com.assignment.ptmsassignment;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import android.app.Fragment;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 public class ServiceJobsFragment extends Fragment{
 	ListView list;
+	TextView tvUpdateTime;
 	String userId;
 	public ServiceJobsFragment(){
 	}
@@ -26,34 +35,43 @@ public class ServiceJobsFragment extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
         findViews();
-        initializeCursorAdapter();
+        initializeList();
     }  
     private void findViews(){
     	list = (ListView) getView().findViewById(R.id.listView);
+    	tvUpdateTime = (TextView) getView().findViewById(R.id.updateTime);
     }
-    private Cursor fetchFromDB(){
-    	SQLiteDatabase db = DatabaseAccess.readDatabase("/data/data/com.assignment.ptmsassignment/databases/PrinterDB");
-    	//Log.i("userID",userId);
-    	Cursor cursor =DatabaseAccess.select(db, "SELECT rowid _id,* FROM ServiceJob ;");
-    	int i=0;
-    	while(cursor.moveToNext()!=false){
-        	Log.i(cursor.getColumnName(0),cursor.getString(0));
-        	Log.i(cursor.getColumnName(1),cursor.getString(1));
-        	Log.i(cursor.getColumnName(2),cursor.getString(2));
-        	Log.i(cursor.getColumnName(3),cursor.getString(3));
-        	Log.i(cursor.getColumnName(4),cursor.getString(4));
-    	}
-    	//DatabaseAccess.connectionClose(db);
-    	return cursor;
+
+    private void initializeList(){
+        initializeCursorAdapter();
+    	list.setOnItemClickListener(new OnItemClickListener(){
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Intent intent = new Intent(getActivity(), JobDetailsActivity.class);
+                String jobNo = ((TextView)view.findViewById(R.id.jobNo)).getText().toString();
+				intent.putExtra("jobNo", jobNo);
+                startActivity(intent);
+			}
+			});
     }
-    
     private void initializeCursorAdapter(){
-    	int[] views = {R.id.tvJobNo, R.id.tvRequestDate,R.id.tvJobProblem,R.id.tvVisitDate,R.id.tvJobStatus};
+    	SQLiteDatabase db = DatabaseAccess.readDatabase("/data/data/com.assignment.ptmsassignment/databases/PrinterDB");
+    	
+    	int[] views = {R.id.jobNo, R.id.requestDate,R.id.jobProblem,R.id.visitDate,R.id.jobStatus};
     	String[] cols = {"jobNo", "requestDate", "jobProblem", "visitDate", "jobStatus"};
-    	Cursor cursor = fetchFromDB();
+    	
+    	Cursor cursor = DatabaseAccess.select(db, "SELECT rowid _id,* FROM ServiceJob ;");
     	
     	SimpleCursorAdapter scAdapter = new SimpleCursorAdapter(this.getActivity(), R.layout.listview_service_jobs_items, cursor,cols, views,0 );
     	list.setAdapter(scAdapter);
+    	tvUpdateTime.setText(getUpdateTime("' at ' HH:mm:ss ' on ' dd/MM/yyyy"));
+    	
+    	DatabaseAccess.connectionClose(db);
+    }
+    private String getUpdateTime(String dateFormat){
+    	SimpleDateFormat sdFormat = new SimpleDateFormat(dateFormat);
+    	return sdFormat.format(Calendar.getInstance().getTime());
     }
 
 }
