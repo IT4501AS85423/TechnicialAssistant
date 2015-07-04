@@ -16,19 +16,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findView();
-        
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, LoginSystem.class);
-				startActivity(intent);
-				finish();
-			}
-		});
+        ButtonOnClickListener buttonOnClickListener = new ButtonOnClickListener();
+        btnLogout.setOnClickListener(buttonOnClickListener);
+        btnViewDB.setOnClickListener(buttonOnClickListener);        
     }
 
     public void findView(){
     	btnLogout = (Button)findViewById(R.id.btnLogout);
+    	btnViewDB = (Button)findViewById(R.id.btnViewDB);
     }
     
     @Override
@@ -37,5 +32,29 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
+    //testdfd
+    class ButtonOnClickListener implements View.OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent();
+			switch(v.getId()){
+				case R.id.btnLogout:
+					intent.setClass(MainActivity.this, LoginSystem.class);
+					startActivity(intent);
+					finish();
+					break;
+				
+				case R.id.btnViewDB:
+					intent.setClass(MainActivity.this, ViewDatabase.class);
+					startActivity(intent);
+					break;
+			}
+		}
+    	
+    }
+    
     
 }

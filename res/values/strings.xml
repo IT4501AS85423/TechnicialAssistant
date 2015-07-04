@@ -9,4 +9,11 @@
     <string name="login">Login System</string>
     <string name="logout">Logout</string>
     <string name="viewDB">View Database</string>
+    <string-array name="databse">
+        <item >Technician</item>
+        <item >Product</item>
+        <item >Company</item>
+        <item >Purchase</item>
+        <item >ServiceJob</item>
+    </string-array>
 </resources>

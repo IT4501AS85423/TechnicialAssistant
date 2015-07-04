@@ -18,7 +18,7 @@ public class LoginSystem extends Activity{
 	DatabaseHelper dbHelper;
     Cursor cursor;
     String dbName = "PrinterDB";
-//test
+//testxzs
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

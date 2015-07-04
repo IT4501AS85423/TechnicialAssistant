@@ -7,18 +7,26 @@
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-    	android:orientation="horizontal">
+    	android:orientation="horizontal"
+    	android:gravity="right">
 	    
 	    <Spinner 
 	        android:id="@+id/spinnerChooseDB"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        />
 	    
 	    <Button 
 	        android:id="@+id/btnShowDB"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"/>
+	        android:layout_height="wrap_content"
+	        android:text="Show Database"/>
 	</LinearLayout>
+	
+    <TextView 
+        android:id="@+id/tvShowDB"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="asas"/>
 	
 </LinearLayout>
