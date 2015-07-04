@@ -3,8 +3,6 @@ package com.assignment.ptmsassignment;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -23,7 +21,7 @@ import android.util.Log;
 
 class JSONHelper extends AsyncTask<String,String,String>{
 	String jobsUrlString = "http://itd-moodle.ddns.me/ptms/service_job.php?";
-	@SuppressWarnings("deprecation")
+	
 	protected void fetchJobsToDB(String url, String staffNo) throws ClientProtocolException, IOException, JSONException {
 		url += "staffNo="+staffNo;
 	    HttpClient client = new DefaultHttpClient();
@@ -61,7 +59,6 @@ class JSONHelper extends AsyncTask<String,String,String>{
 			*/
 			ContentValues values = new ContentValues();
 			values.put("jobNo", jsonArray.getJSONObject(pointer).getString("jobNo"));
-			DateFormat date = new DateFormat();
 			values.put("requestDate", jsonArray.getJSONObject(pointer).getString("requestDate"));
 			values.put("jobProblem", jsonArray.getJSONObject(pointer).getString("jobProblem"));
 			values.put("visitDate", jsonArray.getJSONObject(pointer).getString("visitDate"));

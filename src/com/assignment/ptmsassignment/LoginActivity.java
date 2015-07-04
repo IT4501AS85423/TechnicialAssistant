@@ -1,10 +1,5 @@
 package com.assignment.ptmsassignment;
 
-import java.io.IOException;
-
-import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;

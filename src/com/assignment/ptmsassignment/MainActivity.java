@@ -1,33 +1,24 @@
 package com.assignment.ptmsassignment;
 
 
-import java.util.Locale;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
     private DrawerLayout drawerLayout;
@@ -76,12 +67,12 @@ public class MainActivity extends Activity {
         drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.drawable.menu,R.string.drawer_open,R.string.drawer_close) {
             @Override
         	public void onDrawerClosed(View view) {
-                getActionBar().setTitle(preTitle);
+                getActionBar().setTitle(fragTitle);
                 invalidateOptionsMenu();
             }
             @Override
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(fragTitle);
+                getActionBar().setTitle(preTitle);
                 invalidateOptionsMenu();
             }
         };
