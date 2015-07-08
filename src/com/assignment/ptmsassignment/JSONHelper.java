@@ -19,6 +19,7 @@ import android.os.AsyncTask;
 import android.text.format.DateFormat;
 import android.util.Log;
 
+//Throws Exception!!!!!!!!!!!!!!!!!!
 class JSONHelper extends AsyncTask<String,String,String>{
 	String jobsUrlString = "http://itd-moodle.ddns.me/ptms/service_job.php?";
 	
@@ -43,6 +44,7 @@ class JSONHelper extends AsyncTask<String,String,String>{
 		String createTableSQL = "CREATE TABLE IF NOT EXISTS ServiceJob( jobNo text PRIMARY KEY, "
 				+ "requestDate Date NOT NULL, jobProblem text NOT NULL, visitDate Date,"
 				+ " jobStatus text NOT NULL, jobStartTime Date, jobEndTime Date, serialNo text NOT NULL, remark text);";
+		DatabaseAccess.dropTable(db,"ServiceJob");
 		DatabaseAccess.createTable(db, createTableSQL);
 		for(int pointer=0; pointer<jsonArray.length();pointer++){
 		    /*
@@ -67,7 +69,8 @@ class JSONHelper extends AsyncTask<String,String,String>{
 			values.put("jobEndTime", jsonArray.getJSONObject(pointer).getString("jobEndTime"));
 			values.put("serialNo", jsonArray.getJSONObject(pointer).getString("serialNo"));
 			values.put("remark", jsonArray.getJSONObject(pointer).getString("remark"));
-			DatabaseAccess.insertOrIgnore(db,"ServiceJob", values);
+			//DatabaseAccess.insertOrIgnore(db,"ServiceJob", values);
+			DatabaseAccess.insert(db,"ServiceJob", values);
 			
 		}
 		DatabaseAccess.connectionClose(db);
@@ -79,7 +82,7 @@ class JSONHelper extends AsyncTask<String,String,String>{
 			fetchJobsToDB(jobsUrlString, "1001");
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			 e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -42,9 +42,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:listSelector="@drawable/list_item_activate"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin" >
+        android:listSelector="@drawable/list_item_activate" >
 
     </ListView>
 

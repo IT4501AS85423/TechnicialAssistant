@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/jobNo_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/jobNo"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/jobStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/brown"
+        android:padding="2dp"
+        android:text="@string/pending"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/jobNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/jobNo_t"
+        android:layout_alignBottom="@+id/jobNo_t"
+        android:layout_alignLeft="@+id/jobProblem"
+        android:text="000" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jobProblem"
+        android:layout_below="@+id/jobProblem" />
+
+    <TextView
+        android:id="@+id/jobProblem_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/jobProblem"
+        android:layout_alignBottom="@+id/jobProblem"
+        android:layout_alignLeft="@+id/jobNo_t"
+        android:text="@string/jobProblem"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/jobProblem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/jobStatus"
+        android:layout_below="@+id/jobStatus"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/serialNo_t"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="12sp" >
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/serialNo_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jobProblem_t"
+        android:layout_alignTop="@+id/spinner"
+        android:text="@string/serialNo"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="80sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/spinner"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/jobStatus"
+        android:text="@string/Submit"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="80sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/submit"
+        android:layout_alignBottom="@+id/submit"
+        android:layout_alignLeft="@+id/spinner"
+        android:text="@string/cancel"
+        android:textSize="12sp" />
+
+</RelativeLayout>

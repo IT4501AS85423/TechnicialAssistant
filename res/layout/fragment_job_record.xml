@@ -1,0 +1,296 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCE0E0"
+    android:id="@+id/job_record_frag"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+    		android:paddingLeft="@dimen/activity_horizontal_margin"
+    		android:paddingRight="@dimen/activity_horizontal_margin"
+    		android:paddingTop="10dp" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="5sp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/jobBackground"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/jobRecordUpdate"
+                        android:textColor="#009292"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/jobNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:text="000"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/jobNo_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="14dp"
+                        android:layout_toLeftOf="@+id/jobNo"
+                        android:text="@string/jobNo"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#DCE0E0" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/jobStartTime_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignBaseline="@+id/jobStartTime"
+                        android:layout_alignBottom="@+id/jobStartTime"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/jobStartTime"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/visitDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/jobStartTime"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignRight="@+id/jobEndTime"
+                        android:ems="10"
+                        android:inputType="date"
+                        android:textAlignment="center"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/jobEndTime_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignBaseline="@+id/jobEndTime"
+                        android:layout_alignBottom="@+id/jobEndTime"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/jobEndTime"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/jobEndTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/jobStartTime"
+                        android:layout_alignRight="@+id/submitNSign"
+                        android:layout_below="@+id/jobStartTime"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textSize="12dp" />
+
+                    <EditText
+                        android:id="@+id/remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/jobEndTime"
+                        android:layout_alignRight="@+id/submitNSign"
+                        android:layout_below="@+id/jobEndTime"
+                        android:ems="10"
+                        android:inputType="textMultiLine"
+                        android:textSize="12dp" >
+
+                        <requestFocus />
+                    </EditText>
+
+                    <TextView
+                        android:id="@+id/remark_t"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/remark"
+                        android:layout_alignBottom="@+id/remark"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/remark"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/jobStartTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@+id/submitNSign"
+                        android:layout_below="@+id/visitDate"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/jobStartTime_t"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textSize="12dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/remark"
+                        android:layout_alignRight="@+id/remark"
+                        android:layout_below="@+id/remark" />
+
+                    <Button
+                        android:id="@+id/submitNSign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/spinner"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/submitNSign"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/visitDate_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/visitDate"
+                        android:layout_alignBottom="@+id/visitDate"
+                        android:layout_alignLeft="@+id/jobStartTime_t"
+                        android:text="@string/visitDate"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/jobStatus_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/remark_t"
+                        android:layout_alignTop="@+id/spinner"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/jobStatus"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/reset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignRight="@+id/jobStatus_t"
+                        android:text="@string/reset"
+                        android:textSize="12dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="5sp" >
+
+                <TextView
+                    android:id="@+id/clientInformation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action"
+                    android:textColor="#009292"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#DCE0E0" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/call"
+                        android:layout_width="35dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="31dp"
+                        android:layout_toRightOf="@+id/takePhoto"
+                        android:scaleType="fitCenter"
+                        android:src="@android:drawable/ic_menu_camera" />
+
+                    <TextView
+                        android:id="@+id/takePhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/takePhoto"
+                        android:textSize="13sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:padding="5sp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gallery"
+                    android:textColor="#009292"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#DCE0E0" />
+
+                <Gallery
+                    android:id="@+id/gallery1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

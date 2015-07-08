@@ -25,6 +25,18 @@ class DatabaseAccess {
 		int rowPosition = (int) database.insertWithOnConflict(table, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 		return rowPosition;
 	}
+	protected static int insert(SQLiteDatabase database, String table, ContentValues values) throws SQLiteException{
+		int rowPosition = (int) database.insertWithOnConflict(table, null, values, SQLiteDatabase.CONFLICT_IGNORE);
+		return rowPosition;
+	}
+	protected static int update(SQLiteDatabase database, String table,ContentValues values, String whereClause, String[] whereArgs) throws SQLiteException{
+		int rowPosition = (int) database.update(table, values, whereClause, whereArgs);
+		return rowPosition;
+	}
+	protected static int update(SQLiteDatabase database, String table,ContentValues values, String whereClause) throws SQLiteException{
+		int rowPosition = (int) database.update(table, values, whereClause, null);
+		return rowPosition;
+	}
 	protected static Cursor select(SQLiteDatabase database, String sql) throws SQLiteException{
 		Cursor cursor = database.rawQuery(sql, null);
 		return cursor;

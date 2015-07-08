@@ -1,15 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:orientation="horizontal" >
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.00" >
 
         <ImageView
             android:id="@+id/ImageView01"
@@ -32,83 +33,95 @@
             android:textSize="30sp" />
 
         <TextView
+            android:id="@+id/jobProblem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/jobStatus"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/serialNo"
+            android:layout_toRightOf="@+id/ImageView01"
+            android:maxWidth="175dp"
+            android:text="JobProblem"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/requestDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/requestDate_t"
+            android:layout_toRightOf="@+id/requestDate_t"
+            android:text="requestDate"
+            android:textSize="10sp" />
+
+        <TextView
             android:id="@+id/jobStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/TextView01"
-            android:layout_alignBottom="@+id/TextView01"
             android:layout_alignParentLeft="true"
+            android:layout_below="@+id/jobNo"
             android:text="jobStatus"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/requestDate_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/jobProblem"
+            android:layout_below="@id/jobProblem"
+            android:layout_marginTop="2dp"
+            android:text="@string/requested"
+            android:textColor="@color/pale_green_blue"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/serialNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/serialNo_t"
+            android:layout_toLeftOf="@+id/imageView1"
+            android:text="00000000"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/serialNo_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/serialNo"
+            android:layout_alignParentTop="true"
+            android:text="@string/serialNo"
+            android:textColor="@color/pale_green_blue"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/visitDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/requestDate"
+            android:layout_alignBottom="@+id/requestDate"
+            android:layout_alignLeft="@+id/visitDate_t"
+            android:text="visitDate"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/visitDate_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/requestDate_t"
+            android:layout_alignLeft="@+id/serialNo"
+            android:text="@string/visit"
+            android:textColor="@color/pale_green_blue"
             android:textSize="10sp" />
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_above="@+id/visitDate"
-            android:layout_alignBaseline="@+id/jobProblem"
+            android:layout_alignBottom="@+id/visitDate_t"
             android:layout_alignParentRight="true"
             android:clickable="false"
             android:scaleType="fitCenter"
             android:src="@drawable/more_details" />
 
-        <TextView
-            android:id="@+id/jobProblem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/ImageView01"
-            android:maxWidth="200dp"
-            android:text="JobProblem"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/requestDate"
-            android:layout_alignBottom="@+id/requestDate"
-            android:layout_alignLeft="@+id/jobProblem"
-            android:text="@string/requested"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/requestDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/jobNo"
-            android:layout_toRightOf="@+id/TextView01"
-            android:text="requestDate"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/jobNo"
-            android:layout_toLeftOf="@+id/visitDate"
-            android:text="@string/visit"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/visitDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/jobNo"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:text="visitDate"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/serialNo_t"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_alignParentTop="true"
-            android:text="@string/serialNo"
-            android:textSize="10sp" />
-
     </RelativeLayout>
-    
-    </LinearLayout>
 
+</LinearLayout>

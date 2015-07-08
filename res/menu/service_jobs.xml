@@ -1,0 +1,62 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_search"
+        android:showAsAction="ifRoom|withText|collapseActionView"
+        android:title="@string/action_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/search"/>
+    <item
+        android:id="@+id/action_addJob"
+        android:orderInCategory="100"
+        android:icon="@drawable/add"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_addJob"/>
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/refresh"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_refresh"/>
+    <item
+        android:id="@+id/action_sortBy"
+        android:icon="@drawable/sort_by"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_sortBy">
+        <menu >
+            <item 
+                android:id="@+id/action_jobNo_asc"
+        		android:showAsAction="ifRoom|withText"
+        		android:title="@string/action_sortByJobNo_Asc"/>
+            <item 
+                android:id="@+id/action_jobNo_desc"
+        		android:showAsAction="ifRoom|withText"
+        		android:title="@string/action_sortByJobNo_Desc"/>
+            <item 
+                android:id="@+id/action_requestDate_asc"
+        		android:showAsAction="ifRoom|withText"
+        		android:title="@string/action_sortByRequestDate_Asc"/>
+            
+            <item 
+                android:id="@+id/action_requestDate_desc"
+        		android:showAsAction="ifRoom|withText"
+        		android:title="@string/action_sortByRequestDate_Desc"/>
+            
+            <item 
+                android:id="@+id/action_jobStatus_asc"
+        		android:showAsAction="ifRoom|withText"
+        		android:title="@string/action_sortByJobStatus_Asc"/>
+            <item 
+                android:id="@+id/action_jobStatus_desc"
+        		android:showAsAction="ifRoom|withText"
+        		android:title="@string/action_sortByJobStatus_Desc"/>
+        </menu>
+    </item>
+    
+    <item
+        android:id="@+id/action_filter"
+        android:icon="@drawable/filter"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_filter"/>
+    
+
+</menu>

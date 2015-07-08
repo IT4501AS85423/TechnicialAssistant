@@ -3,13 +3,16 @@ package com.assignment.ptmsassignment;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Gallery;
 import android.widget.TextView;
 
 public class JobBackgroundFragment extends Fragment{
@@ -18,15 +21,45 @@ public class JobBackgroundFragment extends Fragment{
 	TextView tvComNo, tvComName, tvComAddr, tvComTel;
 	TextView tvProdNo, tvProdName,tvPurchaseDate;
 	TextView tvUpdateStatus;
-	public JobBackgroundFragment(String jobNo){
-		this.jobNo = jobNo;
+	Gallery gallery;
+	public JobBackgroundFragment(){
 	}
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+		//this.jobNo = getArguments().getString("jobNo");
+		super.onCreate(savedInstanceState);
+	}
+	@Override
+    public void onResume() {
+		super.onResume();
+		Log.i("OnResume", "OnResume");
+		//fetchJobDetails(jobNo);
+	}
+	
+	public void onPause(){
+		super.onPause();
+		Log.i("OnPause", "OnPause");
+	}
+	
+	public void onStart(){
+		super.onStart();
+		Log.i("OnStart", "OnStart");
+	}
+	public void onStop(){
+		super.onStop();
+		//((ServiceJobsFragment)getActivity().get
+		Log.i("OnStop", "OnStop");
+	}
+	
+	
+	
 	 @Override
-	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	    		Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	    Bundle savedInstanceState) {
 	    	View rootView = inflater.inflate(R.layout.fragment_job_background, container, false);
+	    	this.jobNo = getArguments().getString("jobNo");
 	    	return rootView;
-	 }
+	}
 	 @Override  
 	public void onActivityCreated(Bundle savedInstanceState) {  
 		 super.onActivityCreated(savedInstanceState);  
@@ -52,7 +85,7 @@ public class JobBackgroundFragment extends Fragment{
 		 tvPurchaseDate = (TextView) getView().findViewById(R.id.purchaseDate);
 		 tvUpdateStatus = (TextView) getView().findViewById(R.id.updateStatus);
 	 }
-	private void fetchJobDetails(String key){
+	protected void fetchJobDetails(String key){
 		SQLiteDatabase db = DatabaseAccess.readDatabase("/data/data/com.assignment.ptmsassignment/databases/PrinterDB");
 		Cursor cursor = DatabaseAccess.select(db,"SELECT * FROM ServiceJob sj, Purchase pc, Company cp, "
 				+ "Product pd WHERE pc.serialNo = sj.serialNo AND pc.comNo = cp.comNo AND pc.prodNo = "
@@ -80,19 +113,19 @@ public class JobBackgroundFragment extends Fragment{
 		}
 		String jobStatus = tvJobStatus.getText().toString();
 		if(jobStatus.equalsIgnoreCase("completed")){
-			tvJobStatus.setBackgroundColor(0xFF66FF33); //green
+			tvJobStatus.setBackgroundColor(getResources().getColor(R.color.green)); //green
 		}
 		if(jobStatus.equalsIgnoreCase("cancelled")){
-			tvJobStatus.setBackgroundColor(0xFFFF5050); //red
+			tvJobStatus.setBackgroundColor(getResources().getColor(R.color.red));  //red
 		}
 		if(jobStatus.equalsIgnoreCase("postponed")){
-			tvJobStatus.setBackgroundColor(0xFFFFA347); //orange
+			tvJobStatus.setBackgroundColor(getResources().getColor(R.color.orange));  //orange
 		}
 		if(jobStatus.equalsIgnoreCase("follow-up")){
-			tvJobStatus.setBackgroundColor(0xFF33CCCC); //blue
+			tvJobStatus.setBackgroundColor(getResources().getColor(R.color.blue));  //blue
 		}
 		if(jobStatus.equalsIgnoreCase("pending")){
-			tvJobStatus.setBackgroundColor(0xFFCC9900); //brown
+			tvJobStatus.setBackgroundColor(getResources().getColor(R.color.brown));  //brown
 		}
 		
 		tvUpdateStatus.setText(getUpdateTime("'at'HH:mm:ss 'on' dd/MM/yyyy"));
@@ -101,5 +134,25 @@ public class JobBackgroundFragment extends Fragment{
     private String getUpdateTime(String dateFormat){
     	SimpleDateFormat sdFormat = new SimpleDateFormat(dateFormat);
     	return sdFormat.format(Calendar.getInstance().getTime());
+    }
+    
+    public interface CallBackInterface {
+    	public void refresh();
+    }
+    
+    private CallBackInterface callBack;
+    
+    public void onAttach(Activity activity){
+    	super.onAttach(activity);
+    	
+    	try{
+    		callBack = (CallBackInterface) activity;
+    	}catch(ClassCastException e){
+    		throw new ClassCastException(activity.toString()+"must implement JobBackgroundFragment.CallBackInterface.");
+    	}
+    }
+    
+    public void callCompany(View v){
+    	((JobDetailsActivity)getActivity()).callCompany();
     }
 }

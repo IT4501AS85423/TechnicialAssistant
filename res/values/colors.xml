@@ -2,4 +2,12 @@
 <resources>
 	<color name="paleBlue">#ADEBEB</color>
 	<color name="white">#FFFFFF</color>
+	<color name="green_blue">#009292</color>
+	<color name="light_gray">#DCE0E0</color>
+	<color name="green">#66FF33</color>
+	<color name="red">#FF5050</color>
+	<color name="orange">#FFA347</color>
+	<color name="blue">#33CCCC</color>
+	<color name="brown">#CC9900</color>
+	<color name="pale_green_blue">#00DB8F</color>
 </resources>
