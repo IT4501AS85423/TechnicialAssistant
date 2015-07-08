@@ -42,7 +42,8 @@ public class LoginActivity extends Activity{
             if(cursor.moveToFirst()==true){
                 //Intent intent = new Intent(LoginSystem.this, MainActivity.class);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("userId", id);
+                String staffNo = cursor.getString(cursor.getColumnIndex("staffNo"));
+                intent.putExtra("staffNo", staffNo);
                 startActivity(intent);
                 finish();
             }else{

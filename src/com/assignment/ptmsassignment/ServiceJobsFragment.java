@@ -92,7 +92,7 @@ public class ServiceJobsFragment extends Fragment{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				Intent intent = new Intent(getActivity(), JobDetailsActivity.class);
-                String jobNo = ((TextView)view.findViewById(R.id.jobNo)).getText().toString();
+                String jobNo = ((TextView)view.findViewById(R.id.staffNo)).getText().toString();
                 String visitDate = ((TextView)view.findViewById(R.id.visitDate)).getText().toString();
                 String jobStatus = ((TextView)view.findViewById(R.id.jobStatus)).getText().toString();
                 intent.putExtra("jobNo", jobNo);
@@ -108,7 +108,7 @@ public class ServiceJobsFragment extends Fragment{
     protected void initializeCursorAdapter(String key){
     	SQLiteDatabase db = DatabaseAccess.readDatabase("/data/data/com.assignment.ptmsassignment/databases/PrinterDB");
     	
-    	int[] views = {R.id.jobNo, R.id.requestDate,R.id.jobProblem,R.id.visitDate,R.id.jobStatus,R.id.serialNo};
+    	int[] views = {R.id.staffNo, R.id.requestDate,R.id.oldPassword,R.id.visitDate,R.id.jobStatus,R.id.serialNo};
     	String[] cols = {"jobNo", "requestDate", "jobProblem", "visitDate", "jobStatus", "serialNo"};
     	if(key!=null)
     		if(!key.trim().equals(""))
@@ -159,9 +159,9 @@ public class ServiceJobsFragment extends Fragment{
     	addJobDialog.setTitle("Add Service Job");
     	addJobDialog.setContentView(R.layout.dialog_add_job);
     	
-    	tvJobNo = (TextView) addJobDialog.findViewById(R.id.jobNo);
+    	tvJobNo = (TextView) addJobDialog.findViewById(R.id.staffNo);
     	tvJobStatus = (TextView) addJobDialog.findViewById(R.id.jobStatus);
-    	etJobProblem = (EditText) addJobDialog.findViewById(R.id.jobProblem);
+    	etJobProblem = (EditText) addJobDialog.findViewById(R.id.oldPassword);
     	spinner = (Spinner) addJobDialog.findViewById(R.id.spinner);
     	
     	ArrayAdapter<String> arrAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, fetchSerialNo());

@@ -37,6 +37,7 @@ class DatabaseAccess {
 		int rowPosition = (int) database.update(table, values, whereClause, null);
 		return rowPosition;
 	}
+	
 	protected static Cursor select(SQLiteDatabase database, String sql) throws SQLiteException{
 		Cursor cursor = database.rawQuery(sql, null);
 		return cursor;

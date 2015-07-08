@@ -7,8 +7,11 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    	<uses-permission android:name="android.permission.CALL_PHONE" />
+    	<uses-permission android:name="android.permission.INTERNET"/>
+    	<uses-permission android:name="android.permission.CAMERA"/>
+    	<uses-feature android:name="android.hardware.camera.autofocus"></uses-feature>
+    	<uses-feature android:name="android.hardware.camera"></uses-feature>
 
     <application
         android:allowBackup="true"
@@ -18,7 +21,7 @@
         android:uiOptions="splitActionBarWhenNarrow" >
         <activity
             android:name="com.assignment.ptmsassignment.LoginActivity"
-            android:label="Login"
+            android:label="@string/app_name"
             android:uiOptions="splitActionBarWhenNarrow" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +37,17 @@
         <activity
             android:name="com.assignment.ptmsassignment.JobDetailsActivity"
             android:label="@string/jobDetails"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+        <activity
+            android:name="com.assignment.ptmsassignment.CameraActivity"
+            android:label="@string/takePhoto"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        <activity
+            android:name="com.assignment.ptmsassignment.PhotoViewActivity"
+            android:label="@string/takePhoto"
             android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
     </application>

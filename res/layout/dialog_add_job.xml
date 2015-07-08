@@ -6,7 +6,7 @@
     android:padding="10dp" >
 
     <TextView
-        android:id="@+id/jobNo_t"
+        android:id="@+id/staffNo_t"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -27,12 +27,12 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/jobNo"
+        android:id="@+id/staffNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/jobNo_t"
-        android:layout_alignBottom="@+id/jobNo_t"
-        android:layout_alignLeft="@+id/jobProblem"
+        android:layout_alignBaseline="@+id/staffNo_t"
+        android:layout_alignBottom="@+id/staffNo_t"
+        android:layout_alignLeft="@+id/oldPassword"
         android:text="000" />
 
     <Spinner
@@ -40,27 +40,27 @@
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/jobProblem"
-        android:layout_below="@+id/jobProblem" />
+        android:layout_alignLeft="@+id/oldPassword"
+        android:layout_below="@+id/oldPassword" />
 
     <TextView
-        android:id="@+id/jobProblem_t"
+        android:id="@+id/oldPassword_t"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/jobProblem"
-        android:layout_alignBottom="@+id/jobProblem"
-        android:layout_alignLeft="@+id/jobNo_t"
+        android:layout_alignBaseline="@+id/oldPassword"
+        android:layout_alignBottom="@+id/oldPassword"
+        android:layout_alignLeft="@+id/staffNo_t"
         android:text="@string/jobProblem"
         android:textSize="12sp" />
 
     <EditText
-        android:id="@+id/jobProblem"
+        android:id="@+id/oldPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/jobStatus"
         android:layout_below="@+id/jobStatus"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/serialNo_t"
+        android:layout_toRightOf="@+id/newPassword_t"
         android:ems="10"
         android:inputType="textMultiLine"
         android:textSize="12sp" >
@@ -68,10 +68,10 @@
     </EditText>
 
     <TextView
-        android:id="@+id/serialNo_t"
+        android:id="@+id/newPassword_t"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/jobProblem_t"
+        android:layout_alignLeft="@+id/oldPassword_t"
         android:layout_alignTop="@+id/spinner"
         android:text="@string/serialNo"
         android:textSize="12sp" />

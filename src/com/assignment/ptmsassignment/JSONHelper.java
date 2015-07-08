@@ -22,7 +22,10 @@ import android.util.Log;
 //Throws Exception!!!!!!!!!!!!!!!!!!
 class JSONHelper extends AsyncTask<String,String,String>{
 	String jobsUrlString = "http://itd-moodle.ddns.me/ptms/service_job.php?";
-	
+	String staffNo;
+	public JSONHelper(String staffNo){
+		this.staffNo = staffNo;
+	}
 	protected void fetchJobsToDB(String url, String staffNo) throws ClientProtocolException, IOException, JSONException {
 		url += "staffNo="+staffNo;
 	    HttpClient client = new DefaultHttpClient();
@@ -47,18 +50,6 @@ class JSONHelper extends AsyncTask<String,String,String>{
 		DatabaseAccess.dropTable(db,"ServiceJob");
 		DatabaseAccess.createTable(db, createTableSQL);
 		for(int pointer=0; pointer<jsonArray.length();pointer++){
-		    /*
-		    Log.i("jobNo", jsonArray.getJSONObject(pointer).getString("jobNo"));
-		    Log.i("requestDate", jsonArray.getJSONObject(pointer).getString("requestDate"));
-		    Log.i("jobProblem", jsonArray.getJSONObject(pointer).getString("jobProblem"));
-		    Log.i("visitDate", jsonArray.getJSONObject(pointer).getString("visitDate"));
-		    Log.i("jobStatus", jsonArray.getJSONObject(pointer).getString("jobStatus"));
-		    Log.i("jobStartTime", jsonArray.getJSONObject(pointer).getString("jobStartTime"));
-		    Log.i("jobEndTime", jsonArray.getJSONObject(pointer).getString("jobEndTime"));
-		    Log.i("serialNo", jsonArray.getJSONObject(pointer).getString("serialNo"));
-		    Log.i("remark", jsonArray.getJSONObject(pointer).getString("remark"));
-		    
-			*/
 			ContentValues values = new ContentValues();
 			values.put("jobNo", jsonArray.getJSONObject(pointer).getString("jobNo"));
 			values.put("requestDate", jsonArray.getJSONObject(pointer).getString("requestDate"));
@@ -79,7 +70,7 @@ class JSONHelper extends AsyncTask<String,String,String>{
 	@Override
 	protected String doInBackground(String... params) {
 		try {
-			fetchJobsToDB(jobsUrlString, "1001");
+			fetchJobsToDB(jobsUrlString, staffNo);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			 e.printStackTrace();

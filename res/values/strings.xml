@@ -6,9 +6,16 @@
     <string name="action_search">Search</string>
     <string name="action_call">Call</string>
     <string name="action_location">Location</string>
+    <string name="action_takePhoto">Take Photo</string>
     <string name="action_addJob">Add Serivce Job</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_sortBy">Sort By</string>
+    <string name="staffNo">Staff No : </string>
+    <string name="action_showPhoto">Show Photo</string>
+    <string name="newPassword">New Password : </string>
+    <string name="oldPassword">Old Password : </string>
+    <string name="changePassword">Change Password</string>
+    <string name="confirmPassword">Confirm Password : </string>
     <string name="action_sortByJobNo_Asc">Sort By Job No. Asc.</string>
     <string name="action_sortByJobNo_Desc">Sort By Job No. Desc.</string>
     <string name="action_sortByRequestDate_Asc">Sort By Request Date Asc.</string>

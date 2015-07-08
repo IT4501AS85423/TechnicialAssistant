@@ -58,7 +58,7 @@ public class JobRecordFragment extends Fragment{
 		etJobStartTime = (EditText) getView().findViewById(R.id.jobStartTime);
 		etJobEndTime = (EditText) getView().findViewById(R.id.jobEndTime);
 		etRemark = (EditText) getView().findViewById(R.id.remark);
-		tvJobNo = (TextView) getView().findViewById(R.id.jobNo);
+		tvJobNo = (TextView) getView().findViewById(R.id.staffNo);
 		spinner = (Spinner) getView().findViewById(R.id.spinner);
 		btnReset = (Button) getView().findViewById(R.id.reset);
 		//btnRestore = (Button) getView().findViewById(R.id.restore);

@@ -17,13 +17,13 @@
             android:layout_width="20dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/jobNo"
+            android:layout_toRightOf="@+id/staffNo"
             android:clickable="false"
             android:scaleType="fitCenter"
             android:src="@drawable/divider" />
 
         <TextView
-            android:id="@+id/jobNo"
+            android:id="@+id/staffNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -33,7 +33,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/jobProblem"
+            android:id="@+id/oldPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/jobStatus"
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/jobNo"
+            android:layout_below="@+id/staffNo"
             android:text="jobStatus"
             android:textSize="11sp" />
 
@@ -66,8 +66,8 @@
             android:id="@+id/requestDate_t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/jobProblem"
-            android:layout_below="@id/jobProblem"
+            android:layout_alignLeft="@+id/oldPassword"
+            android:layout_below="@id/oldPassword"
             android:layout_marginTop="2dp"
             android:text="@string/requested"
             android:textColor="@color/pale_green_blue"
@@ -77,13 +77,13 @@
             android:id="@+id/serialNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/serialNo_t"
+            android:layout_below="@+id/newPassword_t"
             android:layout_toLeftOf="@+id/imageView1"
             android:text="00000000"
             android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/serialNo_t"
+            android:id="@+id/newPassword_t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/serialNo"

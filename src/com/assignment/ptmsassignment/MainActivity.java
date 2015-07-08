@@ -43,16 +43,15 @@ public class MainActivity extends Activity {
     private String preTitle = "";
     private int preIndex = 0;
     EditText etSearch;
-    private String userId;
+    protected String staffNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeView();
-        fetchJSON();
+        staffNo = getIntent().getStringExtra("staffNo");
+        fetchJSON(staffNo);
         initializeNav(savedInstanceState);
-        userId = getIntent().getStringExtra("userId");
-        //Log.i("UserID",userId);
     }
 
     public void initializeView(){
@@ -104,8 +103,8 @@ public class MainActivity extends Activity {
         MenuInflater inflater = getMenuInflater();
         Fragment mainFrag = (Fragment)getFragmentManager().findFragmentByTag("mainFrag");
         Fragment serviceJobFrag = (Fragment)getFragmentManager().findFragmentByTag("serviceJobFrag");
-        if(mainFrag != null)
-        	inflater.inflate(R.menu.main, menu);
+        //if(mainFrag != null)
+        	//inflater.inflate(R.menu.main, menu);
         if(serviceJobFrag != null){
         	inflater.inflate(R.menu.service_jobs, menu);
             MenuItem searchItem = menu.findItem(R.id.action_search);
@@ -134,9 +133,6 @@ public class MainActivity extends Activity {
     private void initializeSearchView(SearchView searchView){
     	searchView.setIconifiedByDefault(false);
         searchView.setSubmitButtonEnabled(true);
-        if(!searchView.isActivated()){
-        	Toast.makeText(getApplicationContext(), "123", Toast.LENGTH_SHORT).show();
-        }
         int searchCloseButtonId = searchView.getContext().getResources().getIdentifier("android:id/search_close_btn", null, null);
         ImageView closeButton = (ImageView) searchView.findViewById(searchCloseButtonId);
         int searchSrcTextId = getResources().getIdentifier("android:id/search_src_text", null, null);  
@@ -189,8 +185,6 @@ public class MainActivity extends Activity {
         	if(item != null)
         		item.setVisible(!opened);
         	}
-       
-        
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -285,9 +279,9 @@ public class MainActivity extends Activity {
         drawerToggle.onConfigurationChanged(config);
     }
     
-    private void fetchJSON(){
+    private void fetchJSON(String staffNo){
   	   if(jHelper == null||jHelper.getStatus().equals(AsyncTask.Status.FINISHED)){
-  		   jHelper = new JSONHelper();
+  		   jHelper = new JSONHelper(staffNo);
   		   jHelper.execute();
   	   }
      }

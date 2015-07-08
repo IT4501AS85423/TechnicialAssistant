@@ -67,8 +67,8 @@ public class JobBackgroundFragment extends Fragment{
 	     fetchJobDetails(jobNo);
 	}  
 	 private void findViews(){
-		 tvJobNo = (TextView) getView().findViewById(R.id.jobNo);
-		 tvJobProblem = (TextView) getView().findViewById(R.id.jobProblem);
+		 tvJobNo = (TextView) getView().findViewById(R.id.staffNo);
+		 tvJobProblem = (TextView) getView().findViewById(R.id.oldPassword);
 		 tvJobStatus = (TextView) getView().findViewById(R.id.jobStatus);
 		 tvRequestDate = (TextView) getView().findViewById(R.id.requestDate);
 		 tvVisitDate = (TextView) getView().findViewById(R.id.visitDate);

@@ -9,9 +9,9 @@
     tools:context=".MainActivity" >
 
     <Button 
-        android:id="@+id/btnLogout"
+        android:id="@+id/ChangePassword"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/logout"/>
+        android:text="@string/changePassword"/>
 
 </RelativeLayout>

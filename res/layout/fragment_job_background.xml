@@ -91,29 +91,29 @@
                     android:layout_height="match_parent" >
 
                     <TextView
-                        android:id="@+id/jobNo_t"
+                        android:id="@+id/staffNo_t"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/jobNo"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/serialNo_t"
+                        android:id="@+id/newPassword_t"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/jobNo_t"
+                        android:layout_below="@+id/staffNo_t"
                         android:text="@string/serialNo"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/jobProblem_t"
+                        android:id="@+id/oldPassword_t"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/serialNo_t"
+                        android:layout_below="@+id/newPassword_t"
                         android:text="@string/jobProblem"
                         android:textSize="12sp" />
 
@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/jobProblem"
+                        android:layout_below="@+id/oldPassword"
                         android:layout_marginTop="1dp"
                         android:text="@string/remark"
                         android:textSize="12sp" />
@@ -151,14 +151,14 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/jobNo"
+                        android:id="@+id/staffNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/serialNo_t"
+                        android:layout_above="@+id/newPassword_t"
                         android:layout_marginLeft="17dp"
                         android:layout_marginStart="17dp"
-                        android:layout_toEndOf="@+id/jobNo_t"
-                        android:layout_toRightOf="@+id/jobNo_t"
+                        android:layout_toEndOf="@+id/staffNo_t"
+                        android:layout_toRightOf="@+id/staffNo_t"
                         android:text="000"
                         android:textSize="12sp" />
 
@@ -166,9 +166,9 @@
                         android:id="@+id/serialNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/jobProblem_t"
-                        android:layout_alignLeft="@+id/jobNo"
-                        android:layout_alignStart="@+id/jobNo"
+                        android:layout_above="@+id/oldPassword_t"
+                        android:layout_alignLeft="@+id/staffNo"
+                        android:layout_alignStart="@+id/staffNo"
                         android:text="00000000000 "
                         android:textSize="12sp" />
 
@@ -233,11 +233,11 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/jobProblem"
+                        android:id="@+id/oldPassword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/jobProblem_t"
-                        android:layout_alignBottom="@+id/jobProblem_t"
+                        android:layout_alignBaseline="@+id/oldPassword_t"
+                        android:layout_alignBottom="@+id/oldPassword_t"
                         android:layout_alignLeft="@+id/serialNo"
                         android:text="Problem"
                         android:textSize="12sp" />

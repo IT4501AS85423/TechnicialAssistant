@@ -10,6 +10,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import android.widget.Toast;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -165,9 +167,11 @@ public class JobDetailsActivity extends FragmentActivity implements JobBackgroun
 				 switch(position){
 				 	case 0:
 				 		((JobBackgroundFragment)getFragment(position)).fetchJobDetails(jobNo);
+				 		invalidateOptionsMenu();
 				 		break;
 				 	case 1:
-				 		
+				 		invalidateOptionsMenu();
+				 		break;
 				 }
                  getActionBar().setSelectedNavigationItem(position);
              }
@@ -231,23 +235,44 @@ public class JobDetailsActivity extends FragmentActivity implements JobBackgroun
 	        	callCompany();
 	        	return super.onOptionsItemSelected(item);
 	        case R.id.action_location:
+	        	location();
+	        	return super.onOptionsItemSelected(item);
+	        case R.id.action_takePhoto:
+	        	takePhoto();
 	        	return super.onOptionsItemSelected(item);
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
-	public void callCompany(){
+	protected void takePhoto(){
+		Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
+		intent.putExtra("jobNo", jobNo);
+		startActivity(intent);
+	}
+	protected void location(){
+		try{
+			JobBackgroundFragment jobBackground = (JobBackgroundFragment)getFragment(0);
+			String addr = jobBackground.tvComAddr.getText().toString().trim();
+			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q="+addr));
+			intent.setPackage("com.google.android.apps.maps");
+			startActivity(intent);
+		}catch(Exception e){
+			Toast.makeText(getApplicationContext(), "No Google Map found", Toast.LENGTH_SHORT).show();
+		}
+	}
+	protected void callCompany(){
 		JobBackgroundFragment jobBackground = (JobBackgroundFragment)getFragment(0);
     	String phoneNo = jobBackground.tvComTel.getText().toString().trim();
     	Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNo));
     	startActivity(intent);
 	}
 	 @Override
-	    public boolean onCreateOptionsMenu(Menu menu) {
-	        MenuInflater inflater = getMenuInflater();
-	        inflater.inflate(R.menu.job_details, menu);
-	        return super.onCreateOptionsMenu(menu);
-	    }
+	 public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.job_details, menu);
+	    return super.onCreateOptionsMenu(menu);
+	 }
+
 
 	@Override
 	public void refresh() {

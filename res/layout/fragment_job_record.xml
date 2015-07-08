@@ -45,7 +45,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/jobNo"
+                        android:id="@+id/staffNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -55,12 +55,12 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/jobNo_t"
+                        android:id="@+id/staffNo_t"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="14dp"
-                        android:layout_toLeftOf="@+id/jobNo"
+                        android:layout_toLeftOf="@+id/staffNo"
                         android:text="@string/jobNo"
                         android:textSize="12sp" />
 
@@ -132,8 +132,6 @@
                         android:ems="10"
                         android:inputType="textMultiLine"
                         android:textSize="12dp" >
-
-                        <requestFocus />
                     </EditText>
 
                     <TextView
